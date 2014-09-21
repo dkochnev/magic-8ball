@@ -53,7 +53,7 @@
 		questionText.innerHTML = question;
 
 
-		var numberOfAnswers = 6;
+		var numberOfAnswers = 8;
 
 		// Answers the 8 Ball can return
 		var answerOne = '<img src="images/1.gif"/>';
@@ -62,6 +62,8 @@
         var answerFour = '<img src="images/4.gif"/>';
         var answerFive = '<img src="images/5.gif"/>';
         var answerSix = '<img src="images/6.gif"/>';
+        var answerSix = '<img src="images/7.gif"/>';
+        var answerSix = '<img src="images/8.gif"/>';
 
 		// Answer returned by our 8 Ball
 		var chosenAnswer = getAnswerNumber(numberOfAnswers);
@@ -101,6 +103,12 @@
 			}
             	else if ( answer == 6 ) {
 				fortuneText.innerHTML = answerSix;
+			}
+            else if ( answer == 7 ) {
+				fortuneText.innerHTML = answerSeven;
+			}
+            else if ( answer == 8 ) {
+				fortuneText.innerHTML = answerEight;
 			}
 		}
 
