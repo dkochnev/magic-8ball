@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Magic ball</title>
+
+        	<style type="text/css">
+	body {
+	  background-color: #333; color: #bbb; line-height: normal;
+	}
+
+   	#content {
+		margin: 50px auto 0px auto; padding: 25px 25px 15px 25px;
+		width: 300px; min-width: 300px; overflow: auto;
+		border-left: 1px solid #444; border-top: 1px solid #444; 
+		border-right: 1px solid #333; border-bottom: 1px solid #333;
+		background-color: #3d3d3d;
+	}
+
+     .blue {
+          text-shadow: -1px -1px 0 #2C7982;
+          background: #46fbb6;
+          border: 1px solid #f7cd5d;
+            }
+
+}
+
+		</style>
+
+</head>
+	<body>
+        <div id="content">
+			<div>
+
+
+	    	</div>
+		 <center>	<h1><div id="eight-ball">
+		<button class="blue" onclick="shake()">Shake</button>
+		<p id="question"></p>
+		<p id="answer"></p>
+  </div>   </h1>               <center>
+
+
+			</p>
+		</div>
+	</body>
+     <script>
+
+
+	function shake(){
+
+		var question = prompt("Ask me a question");
+		var questionText = document.getElementById('question');
+		questionText.innerHTML = question;
+
+
+		var numberOfAnswers = 6;
+
+		// Answers the 8 Ball can return
+		var answerOne = '<img src="images/1.gif"/>';
+		var answerTwo = '<img src="images/2.gif"/>';
+        var answerThree = '<img src="images/3.gif"/>';
+        var answerFour = '<img src="images/4.gif"/>';
+        var answerFive = '<img src="images/5.gif"/>';
+        var answerSix = '<img src="images/6.gif"/>';
+
+		// Answer returned by our 8 Ball
+		var chosenAnswer = getAnswerNumber(numberOfAnswers);
+		displayAnswer(chosenAnswer);
+
+		// Returns a number based on the number of sides
+		function getAnswerNumber(answerCount){
+			var number = getRandomInt(1,answerCount);
+			return number;
+		}
+
+		// Returns a random integer between two numbers
+		function getRandomInt(min,max){
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
+		}
+
+    	// Show our answer in the document
+		function displayAnswer(answer) {
+
+			// Access the DOM element we want to to change
+			var fortuneText = document.getElementById('answer');
+
+			if ( answer == 1 ) {
+				fortuneText.innerHTML = answerOne;
+			}
+			else if ( answer == 2 ) {
+				fortuneText.innerHTML = answerTwo;
+			}
+              	else if ( answer == 3 ) {
+				fortuneText.innerHTML = answerThree;
+			}
+            	else if ( answer == 4 ) {
+				fortuneText.innerHTML = answerFour;
+			}
+            	else if ( answer == 5 ) {
+				fortuneText.innerHTML = answerFive;
+			}
+            	else if ( answer == 6 ) {
+				fortuneText.innerHTML = answerSix;
+			}
+		}
+
+	}
+</script>
+
+
+</html>
