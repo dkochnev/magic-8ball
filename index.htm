@@ -46,14 +46,40 @@
      <script>
 
 
-	function shake(){
+ 	function shake(){
 
-		var question = prompt("Ask me a question");
-		var questionText = document.getElementById('question');
-		questionText.innerHTML = question;
+		var question = prompt(fortuneTeller.promptText);
+	    	var questionText = document.getElementById('question');
+	        	questionText.innerHTML = question;
+                      var answer = fortuneTeller.getAnswer();
+        var fortuneText = document.getElementById('answer');
+             fortuneText.innerHTML = '<img src="' + answer +'"/>';
 
+     }
 
-		var numberOfAnswers = 8;
+     var fortuneTeller = {
+        promptText: "Ask me a question.",
+        answers: [
+           "images/1.gif",   //yes
+           "images/2.gif" ,    // no
+           "images/3.gif",       //50/50
+           "images/4.gif",         //shake again
+           "images/5.gif",            // you know the answer
+           "images/6.gif",      //  ask something else
+           "images/7.gif",       // ask your friend
+           "images/8.gif"          // probably not
+        ],
+
+      getAnswer: function(){
+            var min = 1;
+            var max = this.answers.length;
+            var index = Math.floor(Math.random() * (max - min + 1)) + min;
+            return this.answers[index - 1];
+        }
+    };
+
+   /*
+   		var numberOfAnswers = 8;
 
 		// Answers the 8 Ball can return
 		var answerOne = '<img src="images/1.gif"/>';  //yes
@@ -69,50 +95,50 @@
 		var chosenAnswer = getAnswerNumber(numberOfAnswers);
 		displayAnswer(chosenAnswer);
 
-		// Returns a number based on the number of sides
+    		// Returns a number based on the number of sides
 		function getAnswerNumber(answerCount){
 			var number = getRandomInt(1,answerCount);
 			return number;
 		}
 
-		// Returns a random integer between two numbers
+	 	// Returns a random integer between two numbers
 		function getRandomInt(min,max){
 		    return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 
-    	// Show our answer in the document
-		function displayAnswer(answer) {
+       	// Show our answer in the document
+    		function displayAnswer(answer) {
 
-			// Access the DOM element we want to to change
-			var fortuneText = document.getElementById('answer');
+    			// Access the DOM element we want to to change
+    			var fortuneText = document.getElementById('answer');
 
-			if ( answer == 1 ) {
-				fortuneText.innerHTML = answerOne;
-			}
-			else if ( answer == 2 ) {
-				fortuneText.innerHTML = answerTwo;
-			}
-              	else if ( answer == 3 ) {
-				fortuneText.innerHTML = answerThree;
-			}
-            	else if ( answer == 4 ) {
-				fortuneText.innerHTML = answerFour;
-			}
-            	else if ( answer == 5 ) {
-				fortuneText.innerHTML = answerFive;
-			}
-            	else if ( answer == 6 ) {
-				fortuneText.innerHTML = answerSix;
-			}
-            else if ( answer == 7 ) {
-				fortuneText.innerHTML = answerSeven;
-			}
-            else if ( answer == 8 ) {
-				fortuneText.innerHTML = answerEight;
-			}
-		}
+    			if ( answer == 1 ) {
+    				fortuneText.innerHTML = answerOne;
+    			}
+    			else if ( answer == 2 ) {
+    				fortuneText.innerHTML = answerTwo;
+    			}
+                  	else if ( answer == 3 ) {
+    				fortuneText.innerHTML = answerThree;
+    			}
+                	else if ( answer == 4 ) {
+    				fortuneText.innerHTML = answerFour;
+    			}
+                	else if ( answer == 5 ) {
+    				fortuneText.innerHTML = answerFive;
+    			}
+                	else if ( answer == 6 ) {
+    				fortuneText.innerHTML = answerSix;
+    			}
+                else if ( answer == 7 ) {
+    				fortuneText.innerHTML = answerSeven;
+    			}
+                else if ( answer == 8 ) {
+    				fortuneText.innerHTML = answerEight;
+    			}
+    		}
 
-	}
+        } */
 </script>
 
 
