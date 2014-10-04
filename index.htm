@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+            <script type="text/javascript" src="js/modernizr.js"></script>
+                <script type="text/javascript" src="js/shake.js"></script>
+
 		<title>Magic ball</title>
 
         	<style type="text/css">
@@ -46,16 +50,16 @@
      <script>
 
 
- 	function shake(){
+           window.onload = function() {
+    window.addEventListener('shake', shakeEventDidOccur, false);
 
-		var question = prompt(fortuneTeller.promptText);
-	    	var questionText = document.getElementById('question');
-	        	questionText.innerHTML = question;
-                      var answer = fortuneTeller.getAnswer();
-        var fortuneText = document.getElementById('answer');
-             fortuneText.innerHTML = '<img src="' + answer +'"/>';
+    //function to call when shake occurs
+    function shakeEventDidOccur () {
+        shake();
+    }
 
-     }
+
+
 
      var fortuneTeller = {
         promptText: "Ask me a question.",
@@ -76,8 +80,17 @@
             var index = Math.floor(Math.random() * (max - min + 1)) + min;
             return this.answers[index - 1];
         }
-    };
+    }
+              	function shake(){
 
+		var question = prompt(fortuneTeller.promptText);
+	    	var questionText = document.getElementById('question');
+	        	questionText.innerHTML = question;
+                      var answer = fortuneTeller.getAnswer();
+        var fortuneText = document.getElementById('answer');
+             fortuneText.innerHTML = '<img src="' + answer +'"/>';
+
+     };
    /*
    		var numberOfAnswers = 8;
 
