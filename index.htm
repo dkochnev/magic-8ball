@@ -9,7 +9,7 @@
 
         	<style>
 
-          
+
              #wrapper {
                     width:100%;
                     margin: 0 auto;
@@ -41,20 +41,19 @@
 	</body>
      <script>
 
+               window.onload = function() {
+                                                 window.addEventListener('shake', shakeEventDidOccur, false);
 
-           window.onload = function() {
-    window.addEventListener('shake', shakeEventDidOccur, false);
-
-    //function to call when shake occurs
-    function shakeEventDidOccur () {
-        shake();
-    }
-
+                                        //function to call when shake occurs
+                                          function shakeEventDidOccur () {
+                                             shake();
+                                                                          }
 
 
 
      var fortuneTeller = {
         promptText: "Ask me a question.",
+        answerType: "text",
         answers: [
            "images/1.gif",   //yes
            "images/2.gif" ,    // no
@@ -66,13 +65,13 @@
            "images/8.gif"          // probably not
         ],
 
-      getAnswer: function(){
+        getAnswer: function(){
             var min = 1;
             var max = this.answers.length;
             var index = Math.floor(Math.random() * (max - min + 1)) + min;
-            return this.answers[index - 1];
+            return this.answers[index-1]; // Subtract 1 from the index
         }
-    }
+    };
               	function shake(){
 
 		var question = prompt(fortuneTeller.promptText);
