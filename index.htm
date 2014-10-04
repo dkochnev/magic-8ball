@@ -1,57 +1,57 @@
 <!DOCTYPE html>
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-            <script type="text/javascript" src="js/modernizr.js"></script>
-                <script type="text/javascript" src="js/shake.js"></script>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<script type="text/javascript" src="js/modernizr.js"></script>
+<script type="text/javascript" src="js/shake.js"></script>
+<title>Magic 8 Ball</title>
+<style>
+body {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 500;
+   font-size:18px;
+   color: #FFFFFF;
+   background: #FF555F;
+}
 
-		<title>Magic ball</title>
+#wrapper {
+    width:100%;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        	<style>
+#eight-ball{
+    width: 100%;
+    margin: 50px 0 0 0;
+}
 
+#answer {
 
-             #wrapper {
-                    width:100%;
-                    margin: 0 auto;
-                    text-align: center;
-                              }
-
-              #eight-ball{
-                    width: 100%;
-                    margin: 50px 0 0 0;
-                          }
-
-              #answer {
-
-                             }
-
-
-		</style>
-
+}
+</style>
 </head>
-	<body>
 
-  <div id="wrapper">
+<body>
+    <div id="wrapper">
         <div id="eight-ball">
             <p id="question"></p>
             <p id="answer"></p>
         <div>
     </div>
+</body>
 
-	</body>
-     <script>
+<script>
+window.onload = function() {
+    window.addEventListener('shake', shakeEventDidOccur, false);
 
-               window.onload = function() {
-                                                 window.addEventListener('shake', shakeEventDidOccur, false);
-
-                                        //function to call when shake occurs
-                                          function shakeEventDidOccur () {
-                                             shake();
-                                                                          }
-
+    //function to call when shake occurs
+    function shakeEventDidOccur () {
+        shake();
+    }
 
 
-     var fortuneTeller = {
+    var fortuneTeller = {
         promptText: "Ask me a question.",
         answerType: "text",
         answers: [
@@ -65,85 +65,33 @@
            "images/8.gif"          // probably not
         ],
 
-        getAnswer: function(){
+       getAnswer: function(){
             var min = 1;
             var max = this.answers.length;
             var index = Math.floor(Math.random() * (max - min + 1)) + min;
             return this.answers[index-1]; // Subtract 1 from the index
         }
     };
-              	function shake(){
 
-		var question = prompt(fortuneTeller.promptText);
-	    	var questionText = document.getElementById('question');
-	        	questionText.innerHTML = question;
-                      var answer = fortuneTeller.getAnswer();
+    function shake() {
+
+        // Set the prompt text
+        var question = prompt(fortuneTeller.promptText);
+
+        // Display the question the user asked
+        var questionText = document.getElementById('question');
+        questionText.innerHTML = question;
+
+        // Ask our fotruneTeller for a random answer
+        var randomAnswer = fortuneTeller.getAnswer();
+
+        // Access the DOM element we want to to change
         var fortuneText = document.getElementById('answer');
-             fortuneText.innerHTML = '<img src="' + answer +'"/>';
 
-     };
-   /*
-   		var numberOfAnswers = 8;
-
-		// Answers the 8 Ball can return
-		var answerOne = '<img src="images/1.gif"/>';  //yes
-		var answerTwo = '<img src="images/2.gif"/>';      //no
-        var answerThree = '<img src="images/3.gif"/>';        //50/50
-        var answerFour = '<img src="images/4.gif"/>';            //shake again
-        var answerFive = '<img src="images/5.gif"/>';                // you know the answer
-        var answerSix = '<img src="images/6.gif"/>';      //  ask something else
-        var answerSeven = '<img src="images/7.gif"/>';          // ask your friend
-        var answerEight = '<img src="images/8.gif"/>';               // probably not
-
-		// Answer returned by our 8 Ball
-		var chosenAnswer = getAnswerNumber(numberOfAnswers);
-		displayAnswer(chosenAnswer);
-
-    		// Returns a number based on the number of sides
-		function getAnswerNumber(answerCount){
-			var number = getRandomInt(1,answerCount);
-			return number;
-		}
-
-	 	// Returns a random integer between two numbers
-		function getRandomInt(min,max){
-		    return Math.floor(Math.random() * (max - min + 1)) + min;
-		}
-
-       	// Show our answer in the document
-    		function displayAnswer(answer) {
-
-    			// Access the DOM element we want to to change
-    			var fortuneText = document.getElementById('answer');
-
-    			if ( answer == 1 ) {
-    				fortuneText.innerHTML = answerOne;
-    			}
-    			else if ( answer == 2 ) {
-    				fortuneText.innerHTML = answerTwo;
-    			}
-                  	else if ( answer == 3 ) {
-    				fortuneText.innerHTML = answerThree;
-    			}
-                	else if ( answer == 4 ) {
-    				fortuneText.innerHTML = answerFour;
-    			}
-                	else if ( answer == 5 ) {
-    				fortuneText.innerHTML = answerFive;
-    			}
-                	else if ( answer == 6 ) {
-    				fortuneText.innerHTML = answerSix;
-    			}
-                else if ( answer == 7 ) {
-    				fortuneText.innerHTML = answerSeven;
-    			}
-                else if ( answer == 8 ) {
-    				fortuneText.innerHTML = answerEight;
-    			}
-    		}
-
-        } */
+        // Update the element with our answer.
+        fortuneText.innerHTML = randomAnswer;
+    }
+};
 </script>
-
 
 </html>
