@@ -75,22 +75,13 @@ window.onload = function() {
 
     function shake() {
 
-        // Set the prompt text
-        var question = prompt(fortuneTeller.promptText);
-
-        // Display the question the user asked
-        var questionText = document.getElementById('question');
-        questionText.innerHTML = question;
-
-        // Ask our fotruneTeller for a random answer
-        var randomAnswer = fortuneTeller.getAnswer();
-
-        // Access the DOM element we want to to change
+       var question = prompt(fortuneTeller.promptText);
+	    	var questionText = document.getElementById('question');
+	        	questionText.innerHTML = question;
+                      var answer = fortuneTeller.getAnswer();
         var fortuneText = document.getElementById('answer');
-            fortuneText.innerHTML = '<img src="' + answer +'"/>';
-            
-        // Update the element with our answer.
-        fortuneText.innerHTML = randomAnswer;
+             fortuneText.innerHTML = '<img src="' + answer +'"/>';
+
     }
 };
 </script>
