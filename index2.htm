@@ -6,7 +6,7 @@
   <meta name="mobile-web-app-title" content="M8B">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="viewport" content="width=500px, initial-scale=1, maximum-scale=3, user-scalable=no"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=no"/>
 
     <script type="text/javascript" src="js/shake.js"></script>
 
@@ -23,10 +23,10 @@
          background: #1A1A1A;
                     }
       #wrapper      {
-          width:500px;
+          width:100%;
                     }
       #eight-ball   {
-          width:480px;
+          width:100%;
           height: auto;
           
                      }
@@ -78,7 +78,7 @@
       	        questionText.innerHTML = question;
                        var answer = fortuneTeller.getAnswer();
               var fortuneText = document.getElementById('answer');
-                   fortuneText.innerHTML = '<img src="' + answer +'"/>';
+                   fortuneText.innerHTML = '<img src="' + answer +'" width="400"/>';
              }
       };
   </script>
