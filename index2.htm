@@ -75,7 +75,9 @@
           };
 
    function shake() {
-         alert("Think of a question");
+          var question = alert("Think of a question");
+      	     var questionText = document.getElementById('question');
+      	       
                        var answer = fortuneTeller.getAnswer();
               var fortuneText = document.getElementById('answer');
                    fortuneText.innerHTML = '<img src="' + answer +'"/>';
