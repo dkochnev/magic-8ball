@@ -54,7 +54,7 @@
           }
 
          var fortuneTeller = {
-            alert("Think of a question");,
+            promptText: "Ask me a question.",
                answers: [
                            "images/1.gif",   //yes
                            "images/2.gif" ,  // no
@@ -75,7 +75,7 @@
           };
 
    function shake() {
-          var question = alert("Think of a question");
+          var question = prompt(fortuneTeller.promptText);
       	     var questionText = document.getElementById('question');
       	        questionText.innerHTML = question;
                        var answer = fortuneTeller.getAnswer();
